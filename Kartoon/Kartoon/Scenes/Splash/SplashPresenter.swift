@@ -47,7 +47,7 @@ extension SplashPresenter: SplashInteractorToPresenterProtocol {
         case .loadInfoList(let array):
             self.prepareUI(list: array)
         case .startApp:
-            router?.navigate(to: .mainList)
+            router?.navigate(to: .list)
         }
     }
 }
