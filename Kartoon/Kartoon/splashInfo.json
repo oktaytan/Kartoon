@@ -1,0 +1,14 @@
+[
+ {
+ 	"icon": "discover-icon",
+ 	"info": "Discover the best Disney characters and choose your favorite character"
+ },
+ {
+ 	"icon": "search-icon",
+ 	"info": "If you have a character in mind, you can use the search field if you want to find it."
+ },
+ {
+ 	"icon": "detail-icon",
+ 	"info": "If you want, you can also access all the details of the character you have chosen"
+ }
+]
