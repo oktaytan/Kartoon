@@ -25,7 +25,7 @@ final class LoadingView: UIViewController {
     }()
     
     lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffect = UIBlurEffect(style: .regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         
         blurEffectView.alpha = 0.5

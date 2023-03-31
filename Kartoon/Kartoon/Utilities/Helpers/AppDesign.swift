@@ -33,4 +33,5 @@ struct AppDesign {
     
     static let ScreenWidth: CGFloat = UIScreen.main.bounds.width
     static let ScreenHeight: CGFloat = UIScreen.main.bounds.height
+    static let ListItemSpacing: CGFloat = 24.0
 }

@@ -8,15 +8,20 @@
 import UIKit
 import SPIndicator
 
-protocol ControllerBehaviorally {
+protocol ListControllerBehaviorally {
     associatedtype Presenter
     associatedtype Provider
     
     func inject(presenter: Presenter, provider: Provider)
     func addObservationListener()
-    func setupCollectionView()
+    func setupListView()
     func handleError(message: String?)
     func handleLoading(show: Bool)
+}
+
+extension ListControllerBehaviorally {
+    func handleError(message: String?) {}
+    func handleLoading(show: Bool) {}
 }
 
 class BaseViewController: UIViewController {

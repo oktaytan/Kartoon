@@ -17,7 +17,7 @@ final class SplashRouter: SplashPresenterToRouterProtocol {
         let presenter = SplashPresenter(view: view,
                                         interactor: interactor,
                                         router: router)
-        let provider = SplashCollecitonViewProviderImpl()
+        let provider = SplashCollectionViewProviderImpl()
         
         view.inject(presenter: presenter, provider: provider)
         interactor.presenter = presenter
@@ -27,7 +27,15 @@ final class SplashRouter: SplashPresenterToRouterProtocol {
     func navigate(to route: SplashRoute) {
         switch route {
         case .list:
-            print("go to main list")
+            showListVC()
         }
+    }
+}
+
+
+extension SplashRouter {
+    private func showListVC() {
+        let listVC = ListRouter.crateModule()
+        AppDesign.Window?.rootViewController = listVC
     }
 }

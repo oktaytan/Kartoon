@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SplashVC: BaseViewController, ControllerBehaviorally {
+final class SplashVC: BaseViewController, ListControllerBehaviorally {
     
     typealias Presenter = SplashViewToPresenterProtocol
     typealias Provider = SplashCollectionViewProvider
@@ -22,7 +22,7 @@ final class SplashVC: BaseViewController, ControllerBehaviorally {
     override func viewDidLoad() {
         super.viewDidLoad()
         addObservationListener()
-        setupCollectionView()
+        setupListView()
         presenter.load()
     }
     
@@ -48,7 +48,7 @@ final class SplashVC: BaseViewController, ControllerBehaviorally {
         }
     }
     
-    func setupCollectionView() {
+    func setupListView() {
         provider.setupCollectionView(collectionView: self.collectionView)
     }
     
@@ -56,10 +56,6 @@ final class SplashVC: BaseViewController, ControllerBehaviorally {
         DispatchQueue.main.async { [weak self] in
             self?.showToastMessage(title: AppConstants.APP_TITLE, message: message, preset: .error)
         }
-    }
-    
-    func handleLoading(show: Bool) {
-        show ? self.showLoading() : self.hideLoading()
     }
     
     private func setPageControl(index: Int, last: Bool) {
@@ -75,7 +71,7 @@ final class SplashVC: BaseViewController, ControllerBehaviorally {
 }
 
 extension SplashVC {
-    private func collectionViewUserActivity(event: SplashCollecitonViewProviderImpl.UserInteractivity?) {
+    private func collectionViewUserActivity(event: SplashCollectionViewProviderImpl.UserInteractivity?) {
         guard let event = event else { return }
         switch event {
         case .setPageControl(let index, let last):

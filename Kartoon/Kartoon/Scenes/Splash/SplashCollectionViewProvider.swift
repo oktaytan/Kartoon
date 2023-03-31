@@ -8,14 +8,14 @@
 import UIKit
 
 protocol SplashCollectionViewProvider {
-    var stateClosure: ((ObservationType<SplashCollecitonViewProviderImpl.UserInteractivity, Error>) -> ())? { get set }
+    var stateClosure: ((ObservationType<SplashCollectionViewProviderImpl.UserInteractivity, Error>) -> ())? { get set }
     func setData(data: [SplashPresenterOutput.ItemType]?)
     func collectionViewReload()
     func setupCollectionView(collectionView: UICollectionView)
 }
 
 
-final class SplashCollecitonViewProviderImpl: NSObject, CollectionViewProvider, SplashCollectionViewProvider {
+final class SplashCollectionViewProviderImpl: NSObject, CollectionViewProvider, SplashCollectionViewProvider {
     
     typealias T = SplashPresenterOutput.ItemType
     typealias I = IndexPath
@@ -44,7 +44,7 @@ final class SplashCollecitonViewProviderImpl: NSObject, CollectionViewProvider, 
     func setupCollectionView(collectionView: UICollectionView) {
         self.collectionView = collectionView
         self.collectionView?.backgroundColor = .greenLight
-        setupCollectionLayout()
+        self.setupCollectionLayout()
         self.collectionView?.register(cellType: SplashInfoCell.self)
         self.collectionView?.dataSource = self
         self.collectionView?.delegate = self
@@ -62,7 +62,7 @@ final class SplashCollecitonViewProviderImpl: NSObject, CollectionViewProvider, 
 }
 
 
-extension SplashCollecitonViewProviderImpl: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SplashCollectionViewProviderImpl: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -96,7 +96,7 @@ extension SplashCollecitonViewProviderImpl: UICollectionViewDelegate, UICollecti
 }
 
 
-extension SplashCollecitonViewProviderImpl {
+extension SplashCollectionViewProviderImpl {
     enum UserInteractivity {
         case setPageControl(index: Int, last: Bool)
     }
