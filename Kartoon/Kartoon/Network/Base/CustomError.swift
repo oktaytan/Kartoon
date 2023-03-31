@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CustomError: String {
+enum CustomError: String, Error {
     case notFound = "Something went wrong!"
     case parse = "Error occured. Try again."
     case failure = "Try again."

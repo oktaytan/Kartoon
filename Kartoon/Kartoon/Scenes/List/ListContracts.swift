@@ -5,7 +5,7 @@
 //  Created by Oktay Tanrıkulu on 31.03.2023.
 //
 
-import UIKit
+import Foundation
 
 // MARK: - VIEW
 protocol ListViewToPresenterProtocol: AnyObject {
@@ -57,6 +57,6 @@ enum ListRoute {
 }
 
 protocol ListPresenterToRouterProtocol: AnyObject {
-    static func crateModule() -> UINavigationController
+    static func crateModule() -> BaseNavigationController
     func navigate(to route: ListRoute)
 }

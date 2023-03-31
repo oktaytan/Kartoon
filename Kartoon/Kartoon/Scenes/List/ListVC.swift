@@ -29,7 +29,7 @@ final class ListVC: BaseViewController, ListControllerBehaviorally {
     override func setupView() {
         super.setupView()
         headerView.backgroundColor = .greenLight
-        headerView.roundBottomCorners(radius: 28)
+        headerView.roundAll(radius: 28, for: .bottom)
         
         titleLabel.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         titleLabel.textColor = .greenDark

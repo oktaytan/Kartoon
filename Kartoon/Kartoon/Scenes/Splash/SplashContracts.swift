@@ -57,6 +57,6 @@ enum SplashRoute {
 }
 
 protocol SplashPresenterToRouterProtocol: AnyObject {    
-    static func createModule() -> SplashVC
+    static func createModule() -> BaseViewController
     func navigate(to route: SplashRoute)
 }

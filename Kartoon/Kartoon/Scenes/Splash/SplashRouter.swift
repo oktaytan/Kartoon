@@ -10,7 +10,7 @@ import UIKit
 
 final class SplashRouter: SplashPresenterToRouterProtocol {
     
-    static func createModule() -> SplashVC {
+    static func createModule() -> BaseViewController {
         let view = SplashVC(nibName: SplashVC.className, bundle: nil)
         let interactor = SplashInteractor(infoFile: "splashInfo", defaults: UserDefaults.standard)
         let router = SplashRouter()

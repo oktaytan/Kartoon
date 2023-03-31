@@ -9,10 +9,11 @@ import Foundation
 
 protocol KartoonRepository {
     typealias ListCompletionType = (CharacterList?, Error?) -> Void
+    typealias SearchCompletionType = (SearchList?, Error?) -> Void
     typealias DetailCompletionType = (Character?, Error?) -> Void
     
     func list(page: Int, pageSize: Int, completion: @escaping ListCompletionType)
-    func search(name: String, completion: @escaping ListCompletionType)
+    func search(name: String, completion: @escaping SearchCompletionType)
     func detail(id: Int, completion: @escaping DetailCompletionType)
 }
 
@@ -26,8 +27,8 @@ struct KartoonRepositoryImpl: KartoonRepository {
         }
     }
     
-    func search(name: String, completion: @escaping ListCompletionType) {
-        Fetcher.shared.fetch(target: Endpoint.search(name: name)).done { (response: CharacterList) in
+    func search(name: String, completion: @escaping SearchCompletionType) {
+        Fetcher.shared.fetch(target: Endpoint.search(name: name)).done { (response: SearchList) in
             completion(response, nil)
         }.catch { error in
             completion(nil, error)

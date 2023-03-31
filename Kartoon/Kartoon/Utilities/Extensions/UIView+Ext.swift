@@ -32,15 +32,33 @@ extension UIView {
         self.cornerRadius = bounds.height / 2
     }
     
-    func roundTopCorners(radius: CGFloat) {
-        self.cornerRadius = radius
-        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    enum MaskCorners {
+        case top, bottom, left, right
+        
+        var masks: CACornerMask {
+            switch self {
+            case .top: return [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            case .bottom: return [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            case .left: return [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            case .right: return [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+            }
+        }
     }
     
-    func roundBottomCorners(radius: CGFloat) {
+    func roundAll(radius: CGFloat, for corners: MaskCorners) {
         self.cornerRadius = radius
-        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        self.layer.maskedCorners = corners.masks
     }
+    
+//    func roundTopCorners(radius: CGFloat) {
+//        self.cornerRadius = radius
+//        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//    }
+//    
+//    func roundBottomCorners(radius: CGFloat) {
+//        self.cornerRadius = radius
+//        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//    }
     
     public func configureShadow(shadowColor: UIColor, offset: CGSize, shadowRadius: CGFloat, shadowOpacity: Float, cornerRadius: CGFloat, borderColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0.0) {
       layer.shadowColor = shadowColor.cgColor

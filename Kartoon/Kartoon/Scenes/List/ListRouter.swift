@@ -5,21 +5,21 @@
 //  Created by Oktay Tanrıkulu on 31.03.2023.
 //
 
-import UIKit
+import Foundation
 
 final class ListRouter: ListPresenterToRouterProtocol {
     
-    var navController: UINavigationController
+    var navController: BaseNavigationController
     
-    init(navController: UINavigationController) {
+    init(navController: BaseNavigationController) {
         self.navController = navController
     }
     
-    static func crateModule() -> UINavigationController {
+    static func crateModule() -> BaseNavigationController {
         let view = ListVC(nibName: ListVC.className, bundle: nil)
         let repo = KartoonRepositoryImpl()
         let interactor = ListInteractor(repo: repo)
-        let navigation = UINavigationController(rootViewController: view)
+        let navigation = BaseNavigationController(rootViewController: view)
         let router = ListRouter(navController: navigation)
         let presenter = ListPresenter(view: view, interactor: interactor, router: router)
         let provider = ListCollectionViewProviderImpl()
@@ -34,7 +34,8 @@ final class ListRouter: ListPresenterToRouterProtocol {
     func navigate(to route: ListRoute) {
         switch route {
         case .search:
-            print("search")
+            let searchVC = SearchRouter.crateModule()
+            self.navController.pushViewController(searchVC, animated: true)
         case .detail(let id):
             print(id)
         }

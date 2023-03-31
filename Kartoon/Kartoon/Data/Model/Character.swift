@@ -14,6 +14,12 @@ struct CharacterList: Codable {
     let nextPage: String
 }
 
+// MARK: - Search Response
+struct SearchList: Codable {
+    let data: [Character]
+    let count: Int
+}
+
 // MARK: - Datum
 struct Character: Codable {
     let id: Int

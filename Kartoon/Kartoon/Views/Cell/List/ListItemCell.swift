@@ -22,7 +22,7 @@ class ListItemCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.cornerRadius = 14
         
-        blurView.roundBottomCorners(radius: 14)
+        blurView.roundAll(radius: 14, for: .bottom)
         
         nameLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         nameLabel.textColor = .blackSoft

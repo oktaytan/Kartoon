@@ -67,6 +67,7 @@ class BaseViewController: UIViewController {
     
     // Ekranda fullpage loading animasyonu gösterir.
     func showLoading() {
+        hideLoading()
         present(loadingView, animated: true)
     }
     
