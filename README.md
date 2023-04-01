@@ -26,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-When the application is started, firstly, a screen with the pictures and names of the character is displayed. There is a scroll pagination on this screen. Each request brings 20 data of character.
+When the application is started, firstly, a screen with the pictures and names of the character is displayed. There is a scroll pagination on this screen. Each request brings 20 data of character. In the application, character data were obtained by using [https://disneyapi.dev](https://disneyapi.dev).
 
 By pressing any character from this screen, the screen will be displayed where the detail data of that character will be displayed. The application includes the Search screen, which can search for characters.
 
