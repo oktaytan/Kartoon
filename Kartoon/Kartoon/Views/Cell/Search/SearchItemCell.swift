@@ -28,7 +28,7 @@ class SearchItemCell: UITableViewCell {
         nameLabel.textColor = .blackSoft
     }
     
-    func setData(_ item: ItemEntity) {
+    func setData(_ item: SearchEntity) {
         DispatchQueue.main.async { [weak self] in
             self?.itemImageView.loadImage(urlString: item.imageURL, placeholder: "placeholder-image")
             self?.nameLabel.text = item.name

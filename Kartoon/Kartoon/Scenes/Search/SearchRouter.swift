@@ -32,7 +32,8 @@ final class SearchRouter: SearchPresenterToRouterProtocol {
     func navigate(to route: SearchRoute) {
         switch route {
         case .detail(let id):
-            print(id)
+            let detailVC = DetailRouter.createModule(id: id)
+            self.view.navigationController?.pushViewController(detailVC, animated: true)
         case .back:
             self.view.goBack()
         }

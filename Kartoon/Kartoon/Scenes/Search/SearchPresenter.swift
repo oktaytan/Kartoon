@@ -48,7 +48,7 @@ extension SearchPresenter {
         if list.isEmpty {
             self.items.append(.empty)
         } else {
-            self.items = list.map { SearchPresenterOutput.ItemType.item(entity: ItemEntity(data: $0)) }
+            self.items = list.map { SearchPresenterOutput.ItemType.item(entity: SearchEntity(data: $0)) }
         }
         
         self.view?.handleOutput(.load(list: self.items))

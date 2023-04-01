@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct SearchEntity {
+    let id: Int
+    let name: String
+    let imageURL: String
+    
+    init(data: Character) {
+        id = data.id
+        name = data.name
+        imageURL = data.imageURL
+    }
+}

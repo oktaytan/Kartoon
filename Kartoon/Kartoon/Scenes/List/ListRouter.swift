@@ -37,7 +37,8 @@ final class ListRouter: ListPresenterToRouterProtocol {
             let searchVC = SearchRouter.crateModule()
             self.navController.pushViewController(searchVC, animated: true)
         case .detail(let id):
-            print(id)
+            let detailVC = DetailRouter.createModule(id: id)
+            self.navController.pushViewController(detailVC, animated: true)
         }
     }
 }

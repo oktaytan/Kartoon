@@ -41,7 +41,7 @@ protocol SearchInteractorToPresenterProtocol: AnyObject {
 // MARK: - PRESENTER
 enum SearchPresenterOutput {
     enum ItemType {
-        case item(entity: ItemEntity), header(message: String), empty
+        case item(entity: SearchEntity), header(message: String), empty
     }
     
     case load(list: [ItemType]), showLoading(_ show: Bool), showError(_ error: Error?)
