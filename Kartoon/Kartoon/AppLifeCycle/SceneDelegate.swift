@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func checkAppStart(window: UIWindow) {
         let appStart = UserDefaults.standard.bool(forKey: "appStart")
         if appStart {
-            window.rootViewController = ListRouter.crateModule()
+            window.rootViewController = ListRouter.createModule()
         } else {
             window.rootViewController = SplashRouter.createModule()
         }

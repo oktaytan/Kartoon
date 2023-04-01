@@ -15,7 +15,7 @@ final class ListRouter: ListPresenterToRouterProtocol {
         self.navController = navController
     }
     
-    static func crateModule() -> BaseNavigationController {
+    static func createModule() -> BaseNavigationController {
         let view = ListVC(nibName: ListVC.className, bundle: nil)
         let repo = KartoonRepositoryImpl()
         let interactor = ListInteractor(repo: repo)
@@ -34,7 +34,7 @@ final class ListRouter: ListPresenterToRouterProtocol {
     func navigate(to route: ListRoute) {
         switch route {
         case .search:
-            let searchVC = SearchRouter.crateModule()
+            let searchVC = SearchRouter.createModule()
             self.navController.pushViewController(searchVC, animated: true)
         case .detail(let id):
             let detailVC = DetailRouter.createModule(id: id)

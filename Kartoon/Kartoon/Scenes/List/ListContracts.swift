@@ -57,6 +57,6 @@ enum ListRoute {
 }
 
 protocol ListPresenterToRouterProtocol: AnyObject {
-    static func crateModule() -> BaseNavigationController
+    static func createModule() -> BaseNavigationController
     func navigate(to route: ListRoute)
 }

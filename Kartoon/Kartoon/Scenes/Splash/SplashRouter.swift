@@ -35,7 +35,7 @@ final class SplashRouter: SplashPresenterToRouterProtocol {
 
 extension SplashRouter {
     private func showListVC() {
-        let listVC = ListRouter.crateModule()
+        let listVC = ListRouter.createModule()
         AppDesign.Window?.rootViewController = listVC
     }
 }

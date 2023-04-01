@@ -15,7 +15,7 @@ final class SearchRouter: SearchPresenterToRouterProtocol {
         self.view = view
     }
     
-    static func crateModule() -> BaseViewController {
+    static func createModule() -> BaseViewController {
         let view = SearchVC(nibName: SearchVC.className, bundle: nil)
         let repo = KartoonRepositoryImpl()
         let interactor = SearchInteractor(repo: repo)

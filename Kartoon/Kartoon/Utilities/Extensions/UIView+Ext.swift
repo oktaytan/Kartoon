@@ -50,16 +50,6 @@ extension UIView {
         self.layer.maskedCorners = corners.masks
     }
     
-//    func roundTopCorners(radius: CGFloat) {
-//        self.cornerRadius = radius
-//        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//    }
-//    
-//    func roundBottomCorners(radius: CGFloat) {
-//        self.cornerRadius = radius
-//        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-//    }
-    
     public func configureShadow(shadowColor: UIColor, offset: CGSize, shadowRadius: CGFloat, shadowOpacity: Float, cornerRadius: CGFloat, borderColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0.0) {
       layer.shadowColor = shadowColor.cgColor
       layer.shadowOpacity = shadowOpacity

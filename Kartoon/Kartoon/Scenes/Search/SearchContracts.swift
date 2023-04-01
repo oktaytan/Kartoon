@@ -58,6 +58,6 @@ enum SearchRoute {
 }
 
 protocol SearchPresenterToRouterProtocol: AnyObject {
-    static func crateModule() -> BaseViewController
+    static func createModule() -> BaseViewController
     func navigate(to route: SearchRoute)
 }
